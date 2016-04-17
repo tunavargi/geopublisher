@@ -11,7 +11,6 @@ import (
 	"log"
 	"io/ioutil"
 	"net/http"
-	"html/template"
 	"github.com/garyburd/redigo/redis"
 	"github.com/gorilla/websocket"
 	"github.com/gorilla/mux"
@@ -119,9 +118,6 @@ func socketHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func home(w http.ResponseWriter, r *http.Request) {
-		homeTemplate.Execute(w, "ws://"+r.Host+"/socket?lat=47&lng=120&precision=5&channel_id=xyz")
-}
 
 func main() {
 	flag.Parse()
@@ -129,7 +125,6 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/socket", socketHandler)
 	r.HandleFunc("/messages", postMessageHandler)
-	r.HandleFunc("/", home)
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe(":8080", r))
 
