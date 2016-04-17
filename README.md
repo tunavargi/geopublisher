@@ -9,9 +9,9 @@ and receive the messages from people connected to same channel.
 ## How it works ? 
 
 - Open a websocket connection to `ws://localhost:8080/socket?lat=47.12&lng=120.43&precision=5&channel_id=xyz`
-- This will connect to channel with the **geohash** token generated with latitude longitude information like `<channel_id>|<geohash>`
-- You will start to listen to changes in this channel and subgeohashes(for higher precision) and receive via websocket.
-- You may send message by basic http request 
+- This will connect you to a channel with the **geohash** token generated with provided latitude longitude information like `<channel_id>|<geohash>`
+- You will start to listen to changes in this channel and subgeohashes(sublocations with higher precisions) and receive via websocket.
+- You may send message to any location by basic http request with same location parameters
 ` POST {message:hello, user:tuna} http://localhost:8080/messages?lat=47.12&lng=120.43&precision=5&channel_id=xyz` 
 - And the clients listening to those channels via websocket will receive your message
 
