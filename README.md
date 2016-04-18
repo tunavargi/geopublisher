@@ -38,5 +38,5 @@ and receive the messages from people connected to same channel.
 
 ## Reference
 
-- Used [TomiHiltunen's geohash implementation](github.com/TomiHiltunen/geohash-golang) for generating geohashes
+- Used [TomiHiltunen's geohash implementation](http://github.com/TomiHiltunen/geohash-golang) for generating geohashes
 
